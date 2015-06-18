@@ -14,7 +14,6 @@ undefined
 *unexpected termination of test process*
 ::killed
 ```
-In case test generator is not used, both tests pass. 
 
 ```
 rebar eu -v suites=a,b
@@ -44,6 +43,7 @@ One or more tests were cancelled.
 ERROR: One or more eunit tests failed.
 ERROR: eunit failed while processing /Users/grab3/module_test_meck/meck-issue: rebar_abort
 ```
+In case test generator is not used, both tests pass. 
 
 When using clean Erlang shell issue is not reproduced:
 
