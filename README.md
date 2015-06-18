@@ -1,9 +1,8 @@
 # meck-issue
 Project for issue encountered with Meck
 
-This is demonstration of the problem happening when runing eunit tests with rebar and using meck. 
+This is demonstration of the problem happening when runing eunit using test generator and meck. 
 Software: 
-rebar(2.5.1) built with Erlang 16B03-1
 tested on MacOS Yosimite, CentOS 6.5
 
 Problem:
