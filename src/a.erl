@@ -5,11 +5,15 @@
 exported_fun(A) ->
     A.
 
--ifndef(NDEBUG).
 -include_lib("eunit/include/eunit.hrl").
-setup_test_() ->
-    {setup, fun start/0, fun stop/1,{timeout, 10, [fun test1/0]}}.
 
+%% Works fine:
+%%just_test() ->
+%%    test1().
+
+%%Problem occurs when using generator
+setup_test_() ->
+    [fun test1/0].
 
 start()->
     ok.
@@ -20,4 +24,3 @@ stop(_)->
 test1() ->
 ok.
 
--endif.

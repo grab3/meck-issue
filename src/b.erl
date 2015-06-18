@@ -1,14 +1,14 @@
 -module(b).
 
--ifdef(TEST).
 -include_lib("eunit/include/eunit.hrl").
 
 b_test_() ->
     {setup,
      fun() ->
+             ct:pal("Calling setup"),
              ok = meck:new(a,[no_link, passthrough, no_history]),
-             FunC = fun(_) -> ok end,
-             ok = meck:expect(a,exported_fun, FunC)
+             Fun = fun(_) -> ok end,
+             ok = meck:expect(a,exported_fun, Fun)
      end,
      fun(_) -> 
              meck:unload(a)
@@ -19,5 +19,3 @@ b_test_() ->
 	     ]
      end
     }.
-
--endif.
