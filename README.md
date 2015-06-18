@@ -16,6 +16,24 @@ undefined
 ```
 
 ```
+1> eunit:test([a,b]).
+
+----------------------------------------------------
+2015-06-18 13:39:47.547
+Calling setup
+
+undefined
+*unexpected termination of test process*
+::killed
+
+=======================================================
+  Failed: 0.  Skipped: 0.  Passed: 1.
+One or more tests were cancelled.
+error
+```
+
+First revealed when used rebar:
+```
 rebar eu -v suites=a,b
 INFO:  Looking for meck-.* ; found meck-0.8.3 at /Users/grab3/module_test_meck/meck-issue/deps/meck
 INFO:  Looking for meck-.* ; found meck-0.8.3 at /Users/grab3/module_test_meck/meck-issue/deps/meck
