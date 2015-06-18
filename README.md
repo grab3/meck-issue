@@ -4,15 +4,17 @@ Project for issue encountered with Meck
 This is demonstration of the problem happening when runing eunit tests with rebar and using meck. 
 Software: 
 rebar(2.5.1) built with Erlang 16B03-1
+tested on MacOS Yosimite, CentOS 6.5
 
 Problem:
 
-Module a executes a test -> module b executes test using test generator function -> module b fails with 
+Module a executes a test using test generator function -> module b executes test, mecking module a-> module b fails with 
 ```
 undefined
 *unexpected termination of test process*
 ::killed
 ```
+In case test generator is not used, both tests pass. 
 
 ```
 rebar eu -v suites=a,b
@@ -41,4 +43,21 @@ undefined
 One or more tests were cancelled.
 ERROR: One or more eunit tests failed.
 ERROR: eunit failed while processing /Users/grab3/module_test_meck/meck-issue: rebar_abort
+```
+
+When using clean Erlang shell issue is not reproduced:
+
+```
+3> a:test().
+  Test passed.
+ok
+4> b:test().
+
+----------------------------------------------------
+2015-06-18 12:10:34.006
+Calling setup
+
+  Test passed.
+ok
+5>
 ```
